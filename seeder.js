@@ -27,13 +27,13 @@ const courses = JSON.parse(fs.readFileSync(`${__dirname}/_data/courses.json`, 'u
 const importData = async () => {
     try {
         await Bootcamp.create(bootcamps);
-        await Course.create(courses);
+        // await Course.create(courses);
         console.log('Data imported...'.green.inverse);
         process.exit();
     } catch (error) {
         console.error(error);
     }
-}
+};
 
 // Delete Data
 const deleteData = async () => {
@@ -45,10 +45,10 @@ const deleteData = async () => {
     } catch (error) {
         console.error(error);
     }
-}
+};
 
-if(process.argv[2] === '-i') {
+if (process.argv[2] === '-i') {
     importData();
-} else if(process.argv[2] === '-d') {
+} else if (process.argv[2] === '-d') {
     deleteData();
 }
